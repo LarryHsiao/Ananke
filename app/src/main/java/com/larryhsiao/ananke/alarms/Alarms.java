@@ -10,7 +10,7 @@ public interface Alarms {
     /**
      * All of the alarms
      */
-    List<Alarm> all();
+    Map<Long, Alarm> all();
 
     /**
      * Update a exist {@link Alarm}.

@@ -1,21 +1,18 @@
 package com.larryhsiao.ananke.alarms;
 
 import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * In-memory Alarms.
  */
 public class MemoryAlarms implements Alarms {
-    private final HashMap<Long, Alarm> alarms = new HashMap<>();
+    private final Map<Long, Alarm> alarms = new LinkedHashMap<>();
     private long lastId = 0;
 
     @Override
-    public List<Alarm> all() {
-        return new ArrayList<>(alarms.values());
+    public Map<Long, Alarm> all() {
+        return alarms;
     }
 
     @Override

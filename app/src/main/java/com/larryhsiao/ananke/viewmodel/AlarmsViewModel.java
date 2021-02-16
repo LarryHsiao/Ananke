@@ -6,18 +6,19 @@ import androidx.lifecycle.ViewModel;
 import com.larryhsiao.ananke.alarms.Alarm;
 import com.larryhsiao.ananke.alarms.Alarms;
 
-import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
 /**
  * ViewModel of Alarms.
  */
 public class AlarmsViewModel extends ViewModel {
-    private final List<Alarm> alarmList = new ArrayList<>();
+    private final Map<Long, Alarm> alarmMap = new LinkedHashMap<>();
     private final Alarms alarms;
 
-    private final MutableLiveData<List<Alarm>> alarmsLive = new MutableLiveData<>();
+    private final MutableLiveData<Map<Long, Alarm>> alarmsLive = new MutableLiveData<>();
 
     public AlarmsViewModel(Alarms alarms) {
         this.alarms = alarms;
@@ -26,7 +27,7 @@ public class AlarmsViewModel extends ViewModel {
     /**
      * The live data of Alarm for the list.
      */
-    public LiveData<List<Alarm>> alarmsLive() {
+    public LiveData<Map<Long, Alarm>> alarmsLive() {
         return alarmsLive;
     }
 
@@ -35,18 +36,25 @@ public class AlarmsViewModel extends ViewModel {
      */
     public void loadAlarms() {
         CompletableFuture.runAsync(() -> {
-            alarmList.clear();
-            alarmList.addAll(alarms.all());
-            alarmsLive.postValue(alarmList);
+            alarmMap.clear();
+            alarmMap.putAll(alarms.all());
+            alarmsLive.postValue(alarmMap);
         });
     }
 
     /**
      * Update given alarm.
      */
-    public CompletableFuture<Void> updateAlarm(Alarm alarm) {
+    public CompletableFuture<Void> updateAlarm(Alarm newAlarm) {
         return CompletableFuture.runAsync(() -> {
-            alarms.update(alarm);
+            alarms.update(newAlarm);
+        });
+    }
+
+    public void removeAlarm(Alarm alarm) {
+        CompletableFuture.runAsync(() -> {
+            alarms.deleteById(alarm.id());
+            alarmMap.remove(alarm.id());
         });
     }
 }

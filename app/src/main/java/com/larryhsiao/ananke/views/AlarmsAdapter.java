@@ -2,6 +2,7 @@ package com.larryhsiao.ananke.views;
 
 import android.app.TimePickerDialog;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.TextView;
@@ -25,6 +26,7 @@ public class AlarmsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
     public interface ClickListener {
         void onItemUpdated(Alarm item);
+        void onItemRemoved(Alarm item);
     }
 
     private final ClickListener changeListener;
@@ -84,6 +86,13 @@ public class AlarmsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
                 });
             }
         );
+
+        final View deleteButton = holder.itemView.findViewById(R.id.itemAlarm_delete);
+        deleteButton.setOnClickListener(v -> {
+            alarms.remove(position);
+            notifyItemRemoved(position);
+            changeListener.onItemRemoved(item);
+        });
     }
 
     private void updateAlarm(Alarm newAlarm) {
@@ -104,9 +113,9 @@ public class AlarmsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     /**
      * Load all alarms.
      */
-    public void loadAlarms(List<Alarm> newAlarms) {
+    public void loadAlarms(Map<Long, Alarm> newAlarms) {
         alarms.clear();
-        alarms.addAll(newAlarms);
+        alarms.addAll(newAlarms.values());
         notifyDataSetChanged();
     }
 }

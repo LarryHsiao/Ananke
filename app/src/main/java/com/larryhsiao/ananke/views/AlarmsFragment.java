@@ -54,4 +54,9 @@ public class AlarmsFragment extends Fragment implements AlarmsAdapter.ClickListe
     public void onItemUpdated(Alarm item) {
         viewModel.updateAlarm(item);
     }
+
+    @Override
+    public void onItemRemoved(Alarm item) {
+        viewModel.removeAlarm(item);
+    }
 }
