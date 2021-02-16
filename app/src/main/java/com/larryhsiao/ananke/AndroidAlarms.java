@@ -38,6 +38,10 @@ public class AndroidAlarms implements Alarms {
 
     @Override
     public Alarm create(Alarm alarm) {
+        alarmManager.setRepeating(
+            AlarmManager.ELAPSED_REALTIME_WAKEUP,
+            ,
+        );
         return alarms.create(alarm);
     }
 
