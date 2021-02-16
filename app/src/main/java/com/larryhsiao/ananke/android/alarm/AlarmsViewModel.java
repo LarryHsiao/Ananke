@@ -1,4 +1,4 @@
-package com.larryhsiao.ananke.viewmodel;
+package com.larryhsiao.ananke.android.alarm;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -7,7 +7,6 @@ import com.larryhsiao.ananke.alarms.Alarm;
 import com.larryhsiao.ananke.alarms.Alarms;
 
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 

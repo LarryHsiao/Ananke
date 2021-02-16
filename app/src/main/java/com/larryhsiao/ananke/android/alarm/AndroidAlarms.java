@@ -1,4 +1,4 @@
-package com.larryhsiao.ananke;
+package com.larryhsiao.ananke.android.alarm;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
@@ -6,10 +6,8 @@ import android.content.Context;
 import android.content.Intent;
 import com.larryhsiao.ananke.alarms.Alarm;
 import com.larryhsiao.ananke.alarms.Alarms;
-import com.larryhsiao.ananke.views.MainActivity;
-import com.larryhsiao.clotho.dgist.MD5;
+import com.larryhsiao.ananke.android.MainActivity;
 
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -38,10 +36,6 @@ public class AndroidAlarms implements Alarms {
 
     @Override
     public Alarm create(Alarm alarm) {
-        alarmManager.setRepeating(
-            AlarmManager.ELAPSED_REALTIME_WAKEUP,
-            ,
-        );
         return alarms.create(alarm);
     }
 

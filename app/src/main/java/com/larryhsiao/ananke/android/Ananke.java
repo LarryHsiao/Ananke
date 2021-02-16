@@ -1,4 +1,4 @@
-package com.larryhsiao.ananke;
+package com.larryhsiao.ananke.android;
 
 import android.app.Application;
 import com.larryhsiao.ananke.alarms.Alarms;

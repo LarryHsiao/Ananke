@@ -1,4 +1,4 @@
-package com.larryhsiao.ananke.views;
+package com.larryhsiao.ananke.android.alarm;
 
 import android.app.TimePickerDialog;
 import android.view.LayoutInflater;
@@ -14,7 +14,6 @@ import com.larryhsiao.ananke.alarms.WrappedAlarm;
 
 import java.text.SimpleDateFormat;
 import java.util.*;
-import java.util.function.UnaryOperator;
 
 /**
  * Adapter for show Alarm list.
