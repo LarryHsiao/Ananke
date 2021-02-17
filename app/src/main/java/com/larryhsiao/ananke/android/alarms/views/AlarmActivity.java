@@ -1,4 +1,4 @@
-package com.larryhsiao.ananke.android.alarm;
+package com.larryhsiao.ananke.android.alarms.views;
 
 import android.app.Activity;
 import android.os.Bundle;

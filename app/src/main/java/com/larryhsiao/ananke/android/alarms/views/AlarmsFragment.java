@@ -1,4 +1,4 @@
-package com.larryhsiao.ananke.android.alarm;
+package com.larryhsiao.ananke.android.alarms.views;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.larryhsiao.ananke.R;
 import com.larryhsiao.ananke.alarms.Alarm;
 import com.larryhsiao.ananke.android.AnankeViewModelFactory;
+import com.larryhsiao.ananke.android.alarms.AlarmsAdapter;
 
 /**
  * Fragment that shows all alarms

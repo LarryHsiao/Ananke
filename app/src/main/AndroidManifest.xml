@@ -22,9 +22,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".android.alarm.AlarmActivity" />
+        <activity android:name=".android.alarms.views.AlarmActivity" />
 
-        <receiver android:name=".android.alarm.AlarmReceiver" />
+        <receiver android:name=".android.alarms.AlarmReceiver" />
     </application>
 
 </manifest>

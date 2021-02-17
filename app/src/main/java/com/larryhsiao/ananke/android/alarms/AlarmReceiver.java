@@ -1,8 +1,9 @@
-package com.larryhsiao.ananke.android.alarm;
+package com.larryhsiao.ananke.android.alarms;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import com.larryhsiao.ananke.android.alarms.views.AlarmActivity;
 
 /**
  * BroadcastReceiver that receives the broadcasts triggered by the preset.

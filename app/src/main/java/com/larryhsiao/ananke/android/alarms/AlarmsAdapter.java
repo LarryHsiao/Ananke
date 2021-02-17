@@ -1,4 +1,4 @@
-package com.larryhsiao.ananke.android.alarm;
+package com.larryhsiao.ananke.android.alarms;
 
 import android.app.TimePickerDialog;
 import android.view.LayoutInflater;
@@ -59,9 +59,9 @@ public class AlarmsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             (view, hourOfDay, minute) -> {
                 updateAlarm(new WrappedAlarm(alarms.get(position)) {
                     @Override
-                    public Date time() {
+                    public Date nextTrigger() {
                         Calendar instance = Calendar.getInstance();
-                        instance.setTime(super.time());
+                        instance.setTime(super.nextTrigger());
                         instance.set(Calendar.HOUR_OF_DAY, hourOfDay);
                         instance.set(Calendar.MINUTE, minute);
                         return instance.getTime();

@@ -1,18 +1,11 @@
 package com.larryhsiao.ananke.android;
 
-import android.app.AlarmManager;
 import android.app.AlertDialog;
-import android.app.PendingIntent;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Bundle;
 import android.provider.Settings;
 import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
-import androidx.fragment.app.DialogFragment;
 import com.larryhsiao.ananke.R;
-import com.larryhsiao.ananke.android.alarm.AlarmActivity;
-import com.larryhsiao.ananke.android.alarm.AlarmReceiver;
 
 /**
  * Entry Activity of Ananke.
