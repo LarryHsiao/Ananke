@@ -1,6 +1,5 @@
 package com.larryhsiao.ananke.alarms;
 
-import java.util.Date;
 
 /**
  * Just Alarm triggered at specific time.
@@ -13,9 +12,14 @@ public interface Alarm {
     long id();
 
     /**
-     * The trigger time.
+     * Triggered hour, 0-23.
      */
-    Date time();
+    int hour();
+
+    /**
+     * Trigger minute of the hour.
+     */
+    int minute();
 
     /**
      * Indicates if this alarm will triggered by the given preset.

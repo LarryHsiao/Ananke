@@ -23,11 +23,10 @@ public class AlarmSettleUpAction implements Action {
 
     @Override
     public void fire() {
-        Calendar calendar = Calendar.getInstance();
-        //todo #1 move to today.
+        Calendar alarmCalendar = Calendar.getInstance();
         manager.setExactAndAllowWhileIdle(
             AlarmManager.RTC_WAKEUP,
-            calendar.getTime().getTime(),
+            alarmCalendar.getTime().getTime(),
             new AlarmIntentSrc(context, alarm).value()
         );
     }

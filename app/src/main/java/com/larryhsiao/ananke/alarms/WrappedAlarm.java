@@ -5,7 +5,7 @@ import java.util.Date;
 /**
  * Wrapped Alarm.
  */
-public class WrappedAlarm implements Alarm{
+public class WrappedAlarm implements Alarm {
     private final Alarm alarm;
 
     public WrappedAlarm(Alarm alarm) {
@@ -18,8 +18,13 @@ public class WrappedAlarm implements Alarm{
     }
 
     @Override
-    public Date time() {
-        return alarm.time();
+    public int hour() {
+        return alarm.hour();
+    }
+
+    @Override
+    public int minute() {
+        return alarm.minute();
     }
 
     @Override

@@ -18,8 +18,8 @@ public class Ananke extends Application {
 
     public Alarms getAlarms() {
         if (alarms.all().size() == 0) {
-            alarms.create(new ConstAlarm(1, 1000, true));
-            alarms.create(new ConstAlarm(2, 1000, false));
+            alarms.create(new ConstAlarm(1, 10, 0, true));
+            alarms.create(new ConstAlarm(2, 9, 0, false));
         }
         return alarms;
     }

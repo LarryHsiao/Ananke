@@ -25,6 +25,7 @@ public class AlarmsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
     public interface ClickListener {
         void onItemUpdated(Alarm item);
+
         void onItemRemoved(Alarm item);
     }
 
@@ -52,19 +53,21 @@ public class AlarmsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         final Alarm item = alarms.get(position);
         final TextView timeTextView = holder.itemView.findViewById(R.id.itemAlarm_time);
         final Calendar itemCalendar = Calendar.getInstance();
-        itemCalendar.setTime(item.time());
-        timeTextView.setText(timeFormat.format(item.time()));
+        itemCalendar.set(Calendar.HOUR_OF_DAY, item.hour());
+        itemCalendar.set(Calendar.MINUTE, item.minute());
+        timeTextView.setText(timeFormat.format(itemCalendar.getTime()));
         timeTextView.setOnClickListener(v -> new TimePickerDialog(
             v.getContext(),
             (view, hourOfDay, minute) -> {
                 updateAlarm(new WrappedAlarm(alarms.get(position)) {
                     @Override
-                    public Date nextTrigger() {
-                        Calendar instance = Calendar.getInstance();
-                        instance.setTime(super.nextTrigger());
-                        instance.set(Calendar.HOUR_OF_DAY, hourOfDay);
-                        instance.set(Calendar.MINUTE, minute);
-                        return instance.getTime();
+                    public int hour() {
+                        return hourOfDay;
+                    }
+
+                    @Override
+                    public int minute() {
+                        return minute;
                     }
                 });
                 notifyItemChanged(position);
