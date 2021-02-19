@@ -6,6 +6,6 @@
 
     <fragment
         android:id="@+id/alarmsFragment"
-        android:name="com.larryhsiao.ananke.android.alarms.views.AlarmsFragment"
+        android:name="com.larryhsiao.ananke.alarms.views.AlarmsFragment"
         android:label="AlarmsFragment" />
 </navigation>

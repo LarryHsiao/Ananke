@@ -1,7 +1,6 @@
-package com.larryhsiao.ananke.android.alarms;
+package com.larryhsiao.ananke.alarms;
 
 import android.content.Context;
-import com.larryhsiao.ananke.alarms.Alarm;
 import com.larryhsiao.clotho.Action;
 import com.larryhsiao.clotho.Source;
 

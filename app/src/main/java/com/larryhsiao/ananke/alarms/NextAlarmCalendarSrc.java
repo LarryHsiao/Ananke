@@ -1,6 +1,5 @@
-package com.larryhsiao.ananke.android.alarms;
+package com.larryhsiao.ananke.alarms;
 
-import com.larryhsiao.ananke.alarms.Alarm;
 import com.larryhsiao.clotho.Source;
 
 import java.util.Calendar;
@@ -12,10 +11,7 @@ public class NextAlarmCalendarSrc implements Source<Calendar> {
     private final Alarm alarm;
     private final Source<Long> currentTime;
 
-    public NextAlarmCalendarSrc(
-        Alarm alarm,
-        Source<Long> currentTime
-    ) {
+    public NextAlarmCalendarSrc(Alarm alarm, Source<Long> currentTime) {
         this.alarm = alarm;
         this.currentTime = currentTime;
     }

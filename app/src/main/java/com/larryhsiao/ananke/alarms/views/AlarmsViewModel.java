@@ -1,4 +1,4 @@
-package com.larryhsiao.ananke.android.alarms.views;
+package com.larryhsiao.ananke.alarms.views;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

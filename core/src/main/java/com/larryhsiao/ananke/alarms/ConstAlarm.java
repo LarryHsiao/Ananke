@@ -1,8 +1,5 @@
 package com.larryhsiao.ananke.alarms;
 
-import java.util.Calendar;
-import java.util.Date;
-
 /**
  * Constant {@link Alarm}.
  */

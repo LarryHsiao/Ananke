@@ -1,7 +1,5 @@
 package com.larryhsiao.ananke.alarms;
 
-import java.util.Date;
-
 /**
  * Wrapped Alarm.
  */

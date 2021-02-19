@@ -1,4 +1,4 @@
-package com.larryhsiao.ananke.android.alarms;
+package com.larryhsiao.ananke.alarms.views;
 
 import android.app.TimePickerDialog;
 import android.view.LayoutInflater;

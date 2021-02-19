@@ -1,10 +1,10 @@
-package com.larryhsiao.ananke.android;
+package com.larryhsiao.ananke;
 
 import android.content.Context;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
-import com.larryhsiao.ananke.android.alarms.views.AlarmsViewModel;
+import com.larryhsiao.ananke.alarms.views.AlarmsViewModel;
 
 /**
  * Factory to build ViewModels for Ananke.

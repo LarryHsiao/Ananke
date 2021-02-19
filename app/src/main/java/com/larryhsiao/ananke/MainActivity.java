@@ -1,4 +1,4 @@
-package com.larryhsiao.ananke.android;
+package com.larryhsiao.ananke;
 
 import android.app.AlertDialog;
 import android.content.Intent;
