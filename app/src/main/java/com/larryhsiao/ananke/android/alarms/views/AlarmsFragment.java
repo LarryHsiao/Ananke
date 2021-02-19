@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.larryhsiao.ananke.R;
 import com.larryhsiao.ananke.alarms.Alarm;
 import com.larryhsiao.ananke.android.AnankeViewModelFactory;
+import com.larryhsiao.ananke.android.alarms.AlarmSettleUpAction;
 import com.larryhsiao.ananke.android.alarms.AlarmsAdapter;
 
 /**
@@ -52,10 +53,12 @@ public class AlarmsFragment extends Fragment implements AlarmsAdapter.ClickListe
     @Override
     public void onItemUpdated(Alarm item) {
         viewModel.updateAlarm(item);
+        new AlarmSettleUpAction(requireContext(), item).fire();
     }
 
     @Override
     public void onItemRemoved(Alarm item) {
         viewModel.removeAlarm(item);
+        new AlarmSettleUpAction(requireContext(), item).fire();
     }
 }

@@ -45,9 +45,7 @@ public class AlarmsViewModel extends ViewModel {
      * Update given alarm.
      */
     public CompletableFuture<Void> updateAlarm(Alarm newAlarm) {
-        return CompletableFuture.runAsync(() -> {
-            alarms.update(newAlarm);
-        });
+        return CompletableFuture.runAsync(() -> alarms.update(newAlarm));
     }
 
     public void removeAlarm(Alarm alarm) {

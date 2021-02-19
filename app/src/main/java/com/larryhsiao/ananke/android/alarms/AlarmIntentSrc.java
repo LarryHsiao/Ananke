@@ -26,7 +26,7 @@ public class AlarmIntentSrc implements Source<PendingIntent> {
             context,
             0,
             intent,
-            0
+            PendingIntent.FLAG_UPDATE_CURRENT
         );
     }
 }
