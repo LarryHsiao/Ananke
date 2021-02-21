@@ -4,4 +4,5 @@
     <string name="OK">Ok</string>
     <string name="Cancel">Cancel</string>
     <string name="To_make_sure_the_alarm_triggered_as_expected_we_need_overlay_permission_to_do_that_">To make sure the alarm triggered as expected,we need overlay permission to do that.</string>
+    <string name="Create">Create</string>
 </resources>
