@@ -3,8 +3,8 @@ package com.larryhsiao.ananke;
 import android.app.Application;
 import com.larryhsiao.ananke.alarms.Alarms;
 import com.larryhsiao.ananke.alarms.ConstAlarm;
-import com.larryhsiao.ananke.alarms.MemoryAlarms;
 import com.larryhsiao.ananke.alarms.h2.AnankeDbConn;
+import com.larryhsiao.ananke.alarms.h2.H2Alarms;
 import com.larryhsiao.clotho.Source;
 import com.larryhsiao.clotho.database.SingleConn;
 import org.flywaydb.core.api.android.ContextHolder;
@@ -17,7 +17,7 @@ import java.sql.Connection;
  */
 public class Ananke extends Application {
     private Source<Connection> db;
-    private final Alarms alarms = new MemoryAlarms();
+    private Alarms alarms;
 
     @Override
     public void onCreate() {
@@ -26,17 +26,10 @@ public class Ananke extends Application {
         db = new SingleConn(
             new AnankeDbConn(new File(getFilesDir(), "Ananke"))
         );
-    }
-
-    public Connection getConnection() {
-        return db.value();
+        alarms = new H2Alarms(db.value());
     }
 
     public Alarms getAlarms() {
-        if (alarms.all().size() == 0) {
-            alarms.create(new ConstAlarm(1, 10, 0, true));
-            alarms.create(new ConstAlarm(2, 9, 0, false));
-        }
         return alarms;
     }
 }

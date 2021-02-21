@@ -120,4 +120,12 @@ public class AlarmsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         alarms.addAll(newAlarms.values());
         notifyDataSetChanged();
     }
+
+    /**
+     * Append a {@link Alarm} to list.
+     */
+    public void newAlarm(Alarm alarm) {
+        alarms.add(alarm);
+        notifyItemInserted(alarms.size() - 1);
+    }
 }

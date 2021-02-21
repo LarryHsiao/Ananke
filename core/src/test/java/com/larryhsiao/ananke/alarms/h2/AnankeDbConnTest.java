@@ -1,6 +1,5 @@
 package com.larryhsiao.ananke.alarms.h2;
 
-import com.larryhsiao.ananke.alarms.Alarm;
 import com.larryhsiao.ananke.alarms.ConstAlarm;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -17,7 +16,7 @@ class AnankeDbConnTest {
      * Check if the Alarms can do insert.
      */
     @Test
-    void normalCase() throws Exception {
+    void createAlarm() throws Exception {
         try (Connection conn = new AnankeDbConn(
             Files.createTempFile("prefix", "suffix").toFile()
         ).value()) {
