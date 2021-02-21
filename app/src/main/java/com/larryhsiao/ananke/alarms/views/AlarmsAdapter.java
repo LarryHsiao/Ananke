@@ -79,20 +79,20 @@ public class AlarmsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
         final CheckBox enabledCbx = holder.itemView.findViewById(R.id.itemAlarm_enabled);
         enabledCbx.setChecked(item.enabled());
-        enabledCbx.setOnCheckedChangeListener((buttonView, isChecked) -> {
-                updateAlarm(new WrappedAlarm(alarms.get(position)) {
+        enabledCbx.setOnCheckedChangeListener((buttonView, isChecked) ->
+            updateAlarm(
+                new WrappedAlarm(alarms.get(position)) {
                     @Override
                     public boolean enabled() {
                         return isChecked;
                     }
-                });
-            }
+                })
         );
 
         final View deleteButton = holder.itemView.findViewById(R.id.itemAlarm_delete);
         deleteButton.setOnClickListener(v -> {
-            alarms.remove(position);
-            notifyItemRemoved(position);
+            alarms.remove(holder.getAdapterPosition());
+            notifyItemRemoved(holder.getAdapterPosition());
             changeListener.onItemRemoved(item);
         });
     }

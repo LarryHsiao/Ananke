@@ -23,7 +23,7 @@ public class AlarmUpdating implements Action {
         try (PreparedStatement stmt = connection.prepareStatement(
             // language=H2
             "UPDATE ALARMS SET HOUR=?1, MINUTE=?2, ENABLED=?3 " +
-                "WHERE ID=?4"
+                "WHERE ID=?4;"
         )) {
             stmt.setInt(1, alarm.hour());
             stmt.setInt(2, alarm.minute());
