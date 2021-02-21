@@ -1,15 +1,17 @@
-package com.larryhsiao.ananke.viewmodel;
+package com.larryhsiao.ananke.alarms.views;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 import com.larryhsiao.ananke.alarms.Alarm;
 import com.larryhsiao.ananke.alarms.Alarms;
+import com.larryhsiao.ananke.alarms.ConstAlarm;
 
+import java.util.Calendar;
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
+import java.util.function.Supplier;
 
 /**
  * ViewModel of Alarms.
@@ -46,15 +48,28 @@ public class AlarmsViewModel extends ViewModel {
      * Update given alarm.
      */
     public CompletableFuture<Void> updateAlarm(Alarm newAlarm) {
-        return CompletableFuture.runAsync(() -> {
-            alarms.update(newAlarm);
-        });
+        return CompletableFuture.runAsync(() -> alarms.update(newAlarm));
     }
 
     public void removeAlarm(Alarm alarm) {
         CompletableFuture.runAsync(() -> {
             alarms.deleteById(alarm.id());
             alarmMap.remove(alarm.id());
+        });
+    }
+
+    public CompletableFuture<Alarm> createAlarm() {
+        return CompletableFuture.supplyAsync(() -> {
+            final Calendar calendar = Calendar.getInstance();
+            final Alarm alarm = new ConstAlarm(
+                -1,
+                calendar.get(Calendar.HOUR_OF_DAY),
+                calendar.get(Calendar.MINUTE),
+                true
+            );
+            alarms.create(alarm);
+            alarmMap.put(alarm.id(), alarm);
+            return alarm;
         });
     }
 }
