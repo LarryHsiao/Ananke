@@ -33,9 +33,7 @@ public class H2Alarms implements Alarms {
 
     @Override
     public Alarm create(Alarm alarm) {
-        return new CreatedAlarmSrc(
-            connection, alarm
-        ).value();
+        return new CreatedAlarmSrc(connection, alarm).value();
     }
 
     @Override

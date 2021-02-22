@@ -29,4 +29,9 @@ public class WrappedAlarm implements Alarm {
     public boolean enabled() {
         return alarm.enabled();
     }
+
+    @Override
+    public int repetition() {
+        return alarm.repetition();
+    }
 }

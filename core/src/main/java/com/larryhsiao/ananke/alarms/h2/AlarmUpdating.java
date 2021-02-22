@@ -22,13 +22,14 @@ public class AlarmUpdating implements Action {
     public void fire() {
         try (PreparedStatement stmt = connection.prepareStatement(
             // language=H2
-            "UPDATE ALARMS SET HOUR=?1, MINUTE=?2, ENABLED=?3 " +
+            "UPDATE ALARMS SET HOUR=?1, MINUTE=?2, ENABLED=?3, REPETITION=?5 " +
                 "WHERE ID=?4;"
         )) {
             stmt.setInt(1, alarm.hour());
             stmt.setInt(2, alarm.minute());
             stmt.setBoolean(3, alarm.enabled());
             stmt.setLong(4, alarm.id());
+            stmt.setInt(5, alarm.repetition());
             stmt.executeUpdate();
         } catch (Exception e) {
             throw new RuntimeException(e);

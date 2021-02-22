@@ -24,13 +24,14 @@ public class CreatedAlarmSrc implements Source<Alarm> {
     public Alarm value() {
         try (final PreparedStatement stmt = connection.prepareStatement(
             // language=H2
-            "INSERT INTO ALARMS(hour, minute, enabled)" +
-                "VALUES (?1, ?2, ?3);",
+            "INSERT INTO ALARMS(hour, minute, enabled, REPETITION)" +
+                "VALUES (?1, ?2, ?3, ?4);",
             RETURN_GENERATED_KEYS
         )) {
             stmt.setInt(1, newAlarm.hour());
             stmt.setInt(2, newAlarm.minute());
             stmt.setBoolean(3, newAlarm.enabled());
+            stmt.setInt(4, newAlarm.repetition());
             if (stmt.executeUpdate() == 0) {
                 throw new SQLException("Insert failed");
             }

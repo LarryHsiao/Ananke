@@ -2,7 +2,6 @@ package com.larryhsiao.ananke;
 
 import android.app.Application;
 import com.larryhsiao.ananke.alarms.Alarms;
-import com.larryhsiao.ananke.alarms.ConstAlarm;
 import com.larryhsiao.ananke.alarms.h2.AnankeDbConn;
 import com.larryhsiao.ananke.alarms.h2.H2Alarms;
 import com.larryhsiao.clotho.Source;
