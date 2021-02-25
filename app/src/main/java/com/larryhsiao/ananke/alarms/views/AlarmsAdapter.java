@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.larryhsiao.ananke.R;
 import com.larryhsiao.ananke.alarms.Alarm;
 import com.larryhsiao.ananke.alarms.WrappedAlarm;
+import com.larryhsiao.ananke.views.WeekDayToggle;
 
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -80,13 +81,12 @@ public class AlarmsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         final CheckBox enabledCbx = holder.itemView.findViewById(R.id.itemAlarm_enabled);
         enabledCbx.setChecked(item.enabled());
         enabledCbx.setOnCheckedChangeListener((buttonView, isChecked) ->
-            updateAlarm(
-                new WrappedAlarm(alarms.get(position)) {
-                    @Override
-                    public boolean enabled() {
-                        return isChecked;
-                    }
-                })
+            updateAlarm(new WrappedAlarm(alarms.get(holder.getAdapterPosition())) {
+                @Override
+                public boolean enabled() {
+                    return isChecked;
+                }
+            })
         );
 
         final View deleteButton = holder.itemView.findViewById(R.id.itemAlarm_delete);
@@ -95,6 +95,19 @@ public class AlarmsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             notifyItemRemoved(holder.getAdapterPosition());
             changeListener.onItemRemoved(item);
         });
+
+        final WeekDayToggle weekDayToggle = holder.itemView.findViewById(
+            R.id.itemAlarm_weekdayToggle
+        );
+        weekDayToggle.loadToggleState(item.repetition());
+        weekDayToggle.setOnStateChangeListener(state ->
+            updateAlarm(new WrappedAlarm(alarms.get(holder.getAdapterPosition())) {
+                @Override
+                public int repetition() {
+                    return state;
+                }
+            })
+        );
     }
 
     private void updateAlarm(Alarm newAlarm) {

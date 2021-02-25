@@ -25,4 +25,9 @@ public interface Alarm {
      * Indicates if this alarm will triggered by the given preset.
      */
     boolean enabled();
+
+    /**
+     * The repentance
+     */
+    int repetition();
 }

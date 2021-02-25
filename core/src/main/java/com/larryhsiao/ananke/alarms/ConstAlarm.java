@@ -8,12 +8,18 @@ public class ConstAlarm implements Alarm {
     private final int hour;
     private final int minute;
     private final boolean enabled;
+    private final int repetition;
 
     public ConstAlarm(long id, int hour, int minute, boolean enabled) {
+        this(id, hour, minute, enabled, 0);
+    }
+
+    public ConstAlarm(long id, int hour, int minute, boolean enabled, int repetition) {
         this.id = id;
         this.hour = hour;
         this.minute = minute;
         this.enabled = enabled;
+        this.repetition = repetition;
     }
 
     @Override
@@ -34,5 +40,10 @@ public class ConstAlarm implements Alarm {
     @Override
     public boolean enabled() {
         return enabled;
+    }
+
+    @Override
+    public int repetition() {
+        return repetition;
     }
 }

@@ -27,7 +27,8 @@ public class QueriedAlarmsSrc implements Source<List<Alarm>> {
                     resultSet.getLong("id"),
                     resultSet.getInt("hour"),
                     resultSet.getInt("minute"),
-                    resultSet.getBoolean("enabled")
+                    resultSet.getBoolean("enabled"),
+                    resultSet.getInt("repetition")
                 ));
             }
             return result;
