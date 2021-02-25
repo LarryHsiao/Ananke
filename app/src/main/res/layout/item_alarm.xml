@@ -20,6 +20,16 @@
         android:id="@+id/itemAlarm_time"
         android:layout_height="wrap_content" />
 
+    <com.larryhsiao.ananke.views.WeekDayToggle
+        android:layout_width="0dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:id="@+id/itemAlarm_weekdayToggle"
+        app:layout_constraintTop_toBottomOf="@id/itemAlarm_time"
+        app:layout_constraintEnd_toStartOf="@id/itemAlarm_enabled"
+        app:layout_constraintStart_toStartOf="@id/itemAlarm_time"
+        android:layout_height="wrap_content" />
+
     <CheckBox
         android:id="@+id/itemAlarm_enabled"
         android:layout_width="wrap_content"
