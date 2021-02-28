@@ -1,6 +1,6 @@
 if (System.getenv("PUBLISH_P12") != null) {
+    apply plugin: "com.github.triplet.play"
     play {
-        apply plugin: "com.github.triplet.play"
         track = "alpha"
         releaseStatus = "completed"
         defaultToAppBundles = true
