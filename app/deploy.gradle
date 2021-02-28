@@ -1,6 +1,6 @@
 if (System.getenv("PUBLISH_P12") != null) {
-    apply plugin: "com.github.triplet.play"
     play {
+        apply plugin: "com.github.triplet.play"
         track = "alpha"
         releaseStatus = "completed"
         defaultToAppBundles = true
@@ -13,10 +13,10 @@ if (System.getenv("UPLOAD_STORE_PATH")!=null){
     android {
         signingConfigs {
             release {
-                storeFile file(System.getenv('UPLOAD_STORE_PATH'));
-                keyAlias System.getenv('UPLOAD_KEY_ALIAS');
-                keyPassword System.getenv('UPLOAD_KEY_PASSWORD');
-                storePassword System.getenv('UPLOAD_STORE_PASSWORD');
+                storeFile file(System.getenv('UPLOAD_STORE_PATH'))
+                keyAlias System.getenv('UPLOAD_KEY_ALIAS')
+                keyPassword System.getenv('UPLOAD_KEY_PASSWORD')
+                storePassword System.getenv('UPLOAD_STORE_PASSWORD')
             }
             buildTypes.release.signingConfig signingConfigs.release
             buildTypes.debug.signingConfig signingConfigs.release
