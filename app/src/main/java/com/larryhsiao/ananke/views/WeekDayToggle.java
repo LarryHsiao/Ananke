@@ -95,9 +95,9 @@ public class WeekDayToggle extends LinearLayout {
      * Set up teh toggle states.
      */
     public void loadToggleState(int state) {
-        for (int i = getChildCount() - 1; i >= 0; i--) {
+        for (int i = 0; i < getChildCount(); i++) {
             final View dayText = getChildAt(i);
-            if (((state >> i) & 0b0000001) == 1) {
+            if ((state >> (getChildCount() - 1 -i)) == 1) {
                 dayText.setTag(true);
                 dayText.setAlpha(1f);
             } else {
@@ -109,16 +109,16 @@ public class WeekDayToggle extends LinearLayout {
 
     /**
      * ex:
-     * - Monday enables only: 0x1000000
+     * - Monday enables only: 0b1000000
      *
      * @return Toggle states. 1 true otherwise 0.
      */
     public int getToggleState() {
         int result = 0b0000000;
-        for (int i = getChildCount() - 1; i >= 0; i--) {
+        for (int i = 0; i < getChildCount(); i++) {
             boolean enabled = ((boolean) getChildAt(i).getTag());
             if (enabled) {
-                result = result | (1 << i);
+                result = result | (0b1 << (getChildCount() - 1 - i));
             }
         }
         return result;
