@@ -25,12 +25,12 @@ public class AlarmSettleUpAction implements Action {
         if (alarm.enabled()) {
             manager.setExactAndAllowWhileIdle(
                 AlarmManager.RTC_WAKEUP,
-                new NextAlarmCalendarSrc(
-                    alarm,
-                    System::currentTimeMillis
-                ).value()
-                    .getTime()
-                    .getTime(),
+                    new NextAlarmCalendarSrc(
+                        alarm,
+                        System::currentTimeMillis
+                    ).value()
+                        .getTime()
+                        .getTime(),
                 pendingIntent
             );
         } else {
