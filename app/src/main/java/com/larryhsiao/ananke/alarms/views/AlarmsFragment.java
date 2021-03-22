@@ -11,6 +11,7 @@ import com.larryhsiao.ananke.R;
 import com.larryhsiao.ananke.alarms.Alarm;
 import com.larryhsiao.ananke.AnankeViewModelFactory;
 import com.larryhsiao.ananke.alarms.AlarmSettleUpAction;
+import com.larryhsiao.ananke.alarms.WrappedAlarm;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Function;
@@ -86,6 +87,14 @@ public class AlarmsFragment extends Fragment implements AlarmsAdapter.ClickListe
     @Override
     public void onItemRemoved(Alarm item) {
         viewModel.removeAlarm(item);
-        new AlarmSettleUpAction(requireContext(), item).fire();
+        new AlarmSettleUpAction(
+            requireContext(),
+            new WrappedAlarm(item) {
+                @Override
+                public boolean enabled() {
+                    return false;
+                }
+            }
+        ).fire();
     }
 }
