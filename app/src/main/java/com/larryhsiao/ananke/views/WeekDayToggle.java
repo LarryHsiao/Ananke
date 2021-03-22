@@ -97,7 +97,7 @@ public class WeekDayToggle extends LinearLayout {
     public void loadToggleState(int state) {
         for (int i = 0; i < getChildCount(); i++) {
             final View dayText = getChildAt(i);
-            if ((state >> (getChildCount() - 1 -i)) == 1) {
+            if (((state >> (getChildCount() - 1 -i)) &0b0000001) == 1) {
                 dayText.setTag(true);
                 dayText.setAlpha(1f);
             } else {
