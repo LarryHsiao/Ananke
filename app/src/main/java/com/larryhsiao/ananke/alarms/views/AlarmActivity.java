@@ -10,7 +10,11 @@ import android.os.Bundle;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
 import androidx.annotation.Nullable;
+import com.larryhsiao.ananke.Ananke;
 import com.larryhsiao.ananke.R;
+import com.larryhsiao.ananke.alarms.AlarmsSettleUpAction;
+
+import java.util.ArrayList;
 
 import static android.content.Context.VIBRATOR_SERVICE;
 import static android.media.RingtoneManager.TYPE_ALARM;
@@ -39,6 +43,10 @@ public class AlarmActivity extends Activity {
         findViewById(R.id.alarm_dismiss).setOnClickListener(view->{
             finish();
         });
+
+        new AlarmsSettleUpAction(this, () -> new ArrayList<>(
+            ((Ananke) getApplicationContext()).getAlarms().all().values()
+        )).fire();
     }
 
     @Override
@@ -46,6 +54,7 @@ public class AlarmActivity extends Activity {
         super.onDestroy();
         vibrator.cancel();
         ringtone.stop();
+
     }
 
     @Override
