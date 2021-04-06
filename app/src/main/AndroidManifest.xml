@@ -24,9 +24,10 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".alarms.views.AlarmActivity"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
-            />
+        <activity
+            android:name=".alarms.views.AlarmActivity"
+            android:showOnLockScreen="true"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
 
         <receiver android:name=".alarms.AlarmReceiver" />
         <receiver android:name=".alarms.SettlementBroadcastReceiver">
