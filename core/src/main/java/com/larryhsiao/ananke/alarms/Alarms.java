@@ -7,7 +7,7 @@ import java.util.Map;
  */
 public interface Alarms {
     /**
-     * All of the alarms
+     * All of the alarms, Key: id, value: Alarm object.
      */
     Map<Long, Alarm> all();
 

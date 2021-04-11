@@ -95,18 +95,41 @@ public class AlarmsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             notifyItemRemoved(holder.getAdapterPosition());
             changeListener.onItemRemoved(item);
         });
-
+        final CheckBox repeatEnabled = holder.itemView.findViewById(R.id.itemAlarm_repeatEnabled);
+        repeatEnabled.setChecked(item.repetition() >= 0);
         final WeekDayToggle weekDayToggle = holder.itemView.findViewById(
             R.id.itemAlarm_weekdayToggle
         );
-        weekDayToggle.loadToggleState(item.repetition());
-        weekDayToggle.setOnStateChangeListener(state ->
-            updateAlarm(new WrappedAlarm(alarms.get(holder.getAdapterPosition())) {
-                @Override
-                public int repetition() {
-                    return state;
-                }
-            })
+        if (repeatEnabled.isChecked()) {
+            weekDayToggle.setVisibility(View.VISIBLE);
+            weekDayToggle.loadToggleState(item.repetition());
+            weekDayToggle.setOnStateChangeListener(state ->
+                updateAlarm(new WrappedAlarm(alarms.get(holder.getAdapterPosition())) {
+                    @Override
+                    public int repetition() {
+                        return state;
+                    }
+                })
+            );
+        } else {
+            weekDayToggle.setVisibility(View.GONE);
+        }
+        repeatEnabled.setOnClickListener(v -> {
+                final boolean enabled = repeatEnabled.isChecked();
+                updateAlarm(
+                    new WrappedAlarm(alarms.get(position)) {
+                        @Override
+                        public int repetition() {
+                            if (enabled) {
+                                return 0;
+                            } else {
+                                return -1;
+                            }
+                        }
+                    }
+                );
+                notifyItemChanged(position);
+            }
         );
     }
 

@@ -73,9 +73,13 @@ public class WeekDayToggle extends LinearLayout {
             );
             dayText.setTextAppearance(getContext(), android.R.style.TextAppearance_Material_Title);
             dayText.setOnClickListener(v -> {
-                final boolean checked = ((boolean) v.getTag());
-                dayText.setTag(!checked);
-                if (checked) {
+                final boolean currentChecked = ((boolean) v.getTag());
+                dayText.setTag(!currentChecked);
+                if (currentChecked && getToggleState() == 0) {
+                    dayText.setTag(true);
+                    return;
+                }
+                if (currentChecked) {
                     dayText.setAlpha(0.4f);
                 } else {
                     dayText.setAlpha(1f);
@@ -95,6 +99,9 @@ public class WeekDayToggle extends LinearLayout {
      * Set up teh toggle states.
      */
     public void loadToggleState(int state) {
+        if (state == 0){
+            state = 0b1111111;
+        }
         for (int i = 0; i < getChildCount(); i++) {
             final View dayText = getChildAt(i);
             if (((state >> (getChildCount() - 1 -i)) &0b0000001) == 1) {

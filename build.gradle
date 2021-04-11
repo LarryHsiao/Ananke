@@ -11,8 +11,7 @@ ext {
 
 allprojects {
     repositories {
-        google()
-        jcenter()
+        maven { url = "https://larryhsiao.com:11000/repository/maven-public/" }
     }
 }
 

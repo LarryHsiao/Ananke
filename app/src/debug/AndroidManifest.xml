@@ -2,10 +2,12 @@
     package="com.larryhsiao.ananke">
 
     <application>
-        <activity android:name=".alarms.views.AlarmActivity" >
+        <activity
+            android:name=".alarms.views.AlarmActivity"
+            android:label="Ananake - Alarm">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
     </application>
