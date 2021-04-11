@@ -27,7 +27,7 @@
         <activity
             android:name=".alarms.views.AlarmActivity"
             android:showOnLockScreen="true"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+            android:theme="@style/AlarmTheme" />
 
         <receiver android:name=".alarms.AlarmReceiver" />
         <receiver android:name=".alarms.SettlementBroadcastReceiver">

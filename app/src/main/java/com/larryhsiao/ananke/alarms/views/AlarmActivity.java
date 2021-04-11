@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.os.Vibrator;
 import android.view.WindowManager;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import com.larryhsiao.ananke.Ananke;
 import com.larryhsiao.ananke.R;
 import com.larryhsiao.ananke.alarms.Alarm;
@@ -27,7 +28,7 @@ import static android.os.VibrationEffect.createWaveform;
 /**
  * Activity that fires the Alarm.
  */
-public class AlarmActivity extends Activity {
+public class AlarmActivity extends AppCompatActivity {
     private Vibrator vibrator;
     private Ringtone ringtone;
 

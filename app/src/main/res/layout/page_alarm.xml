@@ -11,8 +11,8 @@
         android:id="@+id/alarm_dismiss"
         android:textAppearance="@style/TextAppearance.AppCompat.Title"
         android:padding="32dp"
-        android:textColor="@android:color/primary_text_dark"
-        android:background="@android:color/black"
+        android:textColor="@color/background"
+        android:background="@color/colorPrimary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
