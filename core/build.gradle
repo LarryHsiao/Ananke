@@ -18,13 +18,8 @@ test {
     }
 }
 
-repositories {
-    mavenCentral()
-    jcenter()
-}
-
 dependencies {
-    api 'com.larryhsiao:clotho:1.18.3'
+    api 'com.larryhsiao:clotho:1.18.5'
     api 'com.h2database:h2:1.4.197'
     api "org.flywaydb:flyway-core:6.2.4"
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'

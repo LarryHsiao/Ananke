@@ -1,14 +1,10 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
     repositories {
-        google()
-        jcenter()
-        maven {
-            url "https://plugins.gradle.org/m2/"
-        }
+        maven {url = "https://larryhsiao.com:11000/repository/maven-public/"}
     }
     dependencies {
-        classpath "com.android.tools.build:gradle:4.0.0"
+        classpath "com.android.tools.build:gradle:4.0.2"
         classpath "com.github.triplet.gradle:play-publisher:2.7.2"
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -52,7 +48,7 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation "androidx.navigation:navigation-fragment:2.3.3"
     implementation "androidx.navigation:navigation-ui:2.3.3"
-    implementation "com.larryhsiao:clotho:1.18.4"
+    implementation "com.larryhsiao:clotho:1.18.5"
     implementation "com.silverhetch:aura:1.23.2"
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
