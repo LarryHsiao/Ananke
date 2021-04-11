@@ -1,3 +1,4 @@
+<img src="app/src/main/ic_launcher-playstore.png" alt="drawing" width="50"/>
 Ananke
 -----
 
