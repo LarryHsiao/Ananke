@@ -27,7 +27,11 @@ public interface Alarm {
     boolean enabled();
 
     /**
-     * The repentance
+     * The repentance.
+     *
+     * ex:
+     *   0b1000000     repeats at monday.
+     *   0 or negative repeats nothing.
      */
     int repetition();
 }

@@ -11,7 +11,7 @@ public class ConstAlarm implements Alarm {
     private final int repetition;
 
     public ConstAlarm(long id, int hour, int minute, boolean enabled) {
-        this(id, hour, minute, enabled, 0);
+        this(id, hour, minute, enabled, -1); // -1 for disable reception by default.
     }
 
     public ConstAlarm(long id, int hour, int minute, boolean enabled, int repetition) {
