@@ -60,13 +60,12 @@ public class AlarmsViewModel extends ViewModel {
     public CompletableFuture<Alarm> createAlarm() {
         return CompletableFuture.supplyAsync(() -> {
             final Calendar calendar = Calendar.getInstance();
-            final Alarm alarm = new ConstAlarm(
+            final Alarm alarm = alarms.create(new ConstAlarm(
                 -1,
                 calendar.get(Calendar.HOUR_OF_DAY),
                 calendar.get(Calendar.MINUTE),
                 true
-            );
-            alarms.create(alarm);
+            ));
             alarmMap.put(alarm.id(), alarm);
             return alarm;
         });
