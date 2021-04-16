@@ -154,6 +154,7 @@ public class AlarmsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     public void loadAlarms(Map<Long, Alarm> newAlarms) {
         alarms.clear();
         alarms.addAll(newAlarms.values());
+        alarms.sort((o1, o2) -> (int) (o1.id() - o2.id()));
         notifyDataSetChanged();
     }
 
